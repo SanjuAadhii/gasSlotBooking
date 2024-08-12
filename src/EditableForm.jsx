@@ -13,7 +13,7 @@ const EditableForm = () => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/gasBookingForm/${id}`);
+        const response = await axios.get(`https://serverdb-047b.onrender.com/gasBookingForm/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching form data:', error);

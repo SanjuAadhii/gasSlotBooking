@@ -47,7 +47,7 @@ const EditableForm = () => {
   const onSubmit = async (values) => {
     setIsUpdating(true); // Set updating to true when update starts
     try {
-      const response = await axios.put(`http://localhost:3000/gasBookingForm/${id}`, values);
+      const response = await axios.put(`https://serverdb-047b.onrender.com/gasBookingForm/${id}`, values);
       console.log('Response data:', response.data);
       setTimeout(() => {
         navigate('/bookings/booking-list');

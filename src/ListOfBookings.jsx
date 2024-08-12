@@ -11,7 +11,7 @@ const ListOfBookings = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/gasBookingForm');
+        const response = await axios.get('https://serverdb-047b.onrender.com/gasBookingForm');
         setFormData(response.data);
       } catch (err) {
         setError(err);
@@ -29,7 +29,7 @@ const ListOfBookings = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/gasBookingForm/${id}`);
+      await axios.delete(`https://serverdb-047b.onrender.com/gasBookingForm/${id}`);
       setFormData(formData.filter((booking) => booking.id !== id));
     } catch (err) {
       console.error('Error deleting booking:', err);

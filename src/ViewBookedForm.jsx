@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ViewBookedForm = () => {
   const { id } = useParams();
   const [formData, setFormData] = useState(null);
   const [error, setError] = useState(null);
-  console.log(id);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        console.log(id);
-        const response = await axios.get(`http://localhost:3000/gasBookingForm/${id}`);
+        const response = await axios.get(`https://serverdb-047b.onrender.com/gasBookingForm/${id}`);
         setFormData(response.data);
       } catch (err) {
         setError(err);
@@ -21,6 +21,16 @@ const ViewBookedForm = () => {
 
     fetchFormData();
   }, [id]);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://serverdb-047b.onrender.com/gasBookingForm/${id}`);
+      navigate('/bookings/booking-list');  // Redirect to booking list after deletion
+    } catch (err) {
+      setError(err);
+      console.error('Error deleting booking:', err);
+    }
+  };
 
   if (error) {
     return <p>Error fetching form data: {error.message}</p>;

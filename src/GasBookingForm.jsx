@@ -42,7 +42,7 @@ const GasBookingForm = ({ userData }) => {
     console.log('Form data', formWithId);
     
     try {
-      const response = await axios.post('http://localhost:3000/gasBookingForm', formWithId);
+      const response = await axios.post('https://serverdb-047b.onrender.com/gasBookingForm', formWithId);
       console.log('Response data:', response.data);
       setTimeout(() => {
         navigate(`/viewBookedForm/${formWithId.id}`);

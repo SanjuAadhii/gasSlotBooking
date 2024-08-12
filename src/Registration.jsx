@@ -37,7 +37,7 @@ const Registration = () => {
   const onSubmit = async (values, { setSubmitting, setErrors }) => {
     console.log('Form data', values);
     try {
-      const response = await axios.post('http://localhost:3000/register', values); // Replace with your actual API endpoint
+      const response = await axios.post('https://serverdb-047b.onrender.com/register', values); // Replace with your actual API endpoint
       console.log('Response data:', response.data);
       navigate('/login');
     } catch (error) {
